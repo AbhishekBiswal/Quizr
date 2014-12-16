@@ -1,0 +1,36 @@
+<?php
+	include_once('db.php');
+
+	function quizList($fetch)
+	{
+		// the loop
+		if($fetch->rowCount() == 0)
+		{
+			echo '<p class="grayinfo">Nothing Here.</p>';
+		}
+		else
+		{
+			while($row = $fetch->fetch())
+			{
+?>
+				<li><span class="grey two columns"><?php echo $row['questions']; ?> Questions</span> <a href="<?php echo "/q/".$row['id']; ?>"><?php echo $row['title']; ?></a></li>
+<?php
+			}
+		}
+	}
+
+	function loadQuizlist($userid, $DBH) // created by a user
+	{
+		global $fetch;
+		$fetch = $DBH->prepare("SELECT * FROM quizmeta WHERE user=?");
+		$fetch->execute(array($userid));
+	}
+
+	function loadRecPlayed($userid,$DBH)
+	{
+		global $fetch;
+		$fetch = $DBH->prepare("SELECT * FROM played WHERE user=?");
+		$fetch->execute(array($userid));
+	}
+
+?>

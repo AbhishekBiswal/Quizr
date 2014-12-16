@@ -1,0 +1,13 @@
+/*****************************************************************
+	Quizr Changelog.
+	Start DT : 21 May 2012.
+*****************************************************************/
+
+---------------------------
+21 May 2012
+---------------------------
+-> Basic Functions like Login/Register using Facebook/Twitter.
+-> Basic Design.
+-> Create new Quiz page.
+-> User Profile Foundation ( work in progress )
+----------------------------------------------------------------
